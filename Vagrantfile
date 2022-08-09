@@ -5,23 +5,21 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-
-# The most common configuration options are documented and commented below.
-# For a complete reference, please see the online documentation at
-# https://docs.vagrantup.com.
-
-# Every Vagrant development environment requires a box. You can search for
-# boxes at https://vagrantcloud.com/search.
-
 Vagrant.configure(2) do |config|
   config.vm.provider "vmware_desktop"
   config.vm.define "master", primary: true do |master|
     master.vm.hostname = 'master'
     master.vm.box = "bento/ubuntu-20.04"
-    master.vm.network :private_network, ip: "192.168.56.10"
-    master.vm.provision :shell, path: "python.sh"
-    master.vm.provision :shell, path: "ansible.sh"
-  end
+    master.vm.network :private_network, ip: "192.168.56.10"    
+    master.vm.provision :shell, privileged: false, path: "bootstrap.sh"	
+end
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
