@@ -14,14 +14,15 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 ### The Droplet
 1. Log in to droplet as root and run the following
 ```
-**useradd -m vagrant && passwd vagrant** and set a password.
-**mkdir /home/vagrant/.ssh**
-**nano /home/vagrant/.ssh/authorized_keys** and paste the public key in there.
-**chmod -R go= ~/.ssh**
-**chown -R vagrant:vagrant ~/.ssh**
-**passwd root** and set the root password.
-**usermod -aG sudo vagrant** to add vagrant to the sudoers group.
-8. Take note of the Public IP of your Droplet
+useradd -m vagrant && passwd vagrant and set a password.
+mkdir /home/vagrant/.ssh
+nano /home/vagrant/.ssh/authorized_keys and paste the public key in there.
+chmod -R go= ~/.ssh
+chown -R vagrant:vagrant ~/.ssh
+passwd root and set the root password.
+usermod -aG sudo vagrant** to add vagrant to the sudoers group.
+```
+2. Take note of the Public IP of your Droplet
 
 ### The Ansible VM
 1. Run **nano /home/vagrant/hosts** and add an entry for your Droplet. 
