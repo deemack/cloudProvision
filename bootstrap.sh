@@ -10,3 +10,9 @@ sudo apt update && sudo apt upgrade -y
 
 # Install ansible
 sudo apt install -y ansible
+
+# Copy Playbooks to vagrant home folder
+sudo cp -R /mnt/vagrant-mounts/1000-1000/-vagrant/playbooks/ /home/vagrant/playbooks/
+
+# Copy hosts file to vagrant home folder
+sudo cp -R /mnt/vagrant-mounts/1000-1000/-vagrant/hosts /home/vagrant/hosts
