@@ -27,6 +27,6 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 [droplet]
 123.45.678.9
 ```
-2. save and run **ansible all -m ping**
+2. save and run **ansible -i hosts all -m ping**
 3. You should get a successul green pong.
 4. You can run a playbook from the **vagrant** home directory to update your droplet with the command **ansible-playbook playbooks/update.yml -K**. The capital **K** flag is used to prompt for the **BECOME** password so that the commands can be executed as root.
