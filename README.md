@@ -14,18 +14,23 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 ### The Droplet
 1. Log in to droplet as root and run the following
 ```
-useradd -m vagrant && passwd vagrant and set a password.
+useradd -m vagrant && passwd vagrant
 mkdir /home/vagrant/.ssh
-nano /home/vagrant/.ssh/authorized_keys and paste the public key in there.
+nano /home/vagrant/.ssh/authorized_keys
+```
+and paste the public key in there.
+```
 chmod -R go= ~/.ssh
 chown -R vagrant:vagrant ~/.ssh
-passwd root and set the root password.
-usermod -aG sudo vagrant** to add vagrant to the sudoers group.
+passwd root 
+usermod -aG sudo vagrant
 ```
 2. Take note of the Public IP of your Droplet
 
 ### The Ansible VM
-1. Run **nano /home/vagrant/hosts** and add an entry for your Droplet. 
+1. Run the follwoing command to add an entry for your Droplet. 
+```
+nano /home/vagrant/hosts**
 ```
 [droplet]
 123.45.678.9
@@ -34,6 +39,6 @@ usermod -aG sudo vagrant** to add vagrant to the sudoers group.
 3. You should get a successul green pong.
 4. You can run a playbook from the **vagrant** home directory to update your droplet with the command:
 ```
-**ansible-playbook -i hosts playbooks/update.yml -K**
+ansible-playbook -i hosts playbooks/update.yml -K
 ```
 The capital **K** flag is used to prompt for the **BECOME** password so that the commands can be executed as root.
