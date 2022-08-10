@@ -22,10 +22,11 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 8. Take note of the Public IP of your Droplet
 
 ### The Ansible VM
-1. Run **sudo nano /etc/ansible/hosts** and add an entry for your Droplet. 
+1. Run **nano /home/vagrant/hosts** and add an entry for your Droplet. 
 ```
 [droplet]
 123.45.678.9
 ```
 2. save and run **ansible all -m ping**
 3. You should get a successul green pong.
+4. You can run a playbook from the **vagrant** home directory to update your droplet with the command **ansible-playbook playbooks/update.yml -u vagrant --private-key=/home/vagrant/.ssh/id_rsa -K**
