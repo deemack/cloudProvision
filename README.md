@@ -12,13 +12,13 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 3. Run **sudo su** and then **cp /home/vagrant/.ssh/id_rsa.pub /mnt/vagrant-mounts/1000-1000/-vagrant/id_rsa.pub** to copy the public key to your host computer. It will be in the location where you cloned the repo.
 
 ### The Droplet
-1. Log in to droplet as root and run the following
+1. Log in to droplet as root and run the following commands. They will create the **vagrant** user and the **.ssh** directory to store the public ssh key of your Ansible VM. 
 ```
 useradd -m vagrant && passwd vagrant
 mkdir /home/vagrant/.ssh
 nano /home/vagrant/.ssh/authorized_keys
 ```
-2. Paste the public key in there.
+2. Paste the public key in the **authorized_keys** file and save it. The **.ssh** directory must have the correct permissions or it will not work. The **vagrant** user must also be added to the **sudo** group.
 ```
 chmod -R go= ~/.ssh
 chown -R vagrant:vagrant ~/.ssh
@@ -32,7 +32,7 @@ usermod -aG sudo vagrant
 ```
 nano /home/vagrant/hosts
 ```
-2. Write the name and IP for this group of machines, and then save.
+2. Write the group name and IP of the Droplet, and then save.
 ```
 [droplet]
 123.45.678.9
