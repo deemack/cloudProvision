@@ -1,5 +1,5 @@
 # An Ansible VM to provision a Droplet
-The purpose of this project is to create an Anisble VM with Vagrant, and use it to provision a Droplet using Ansible.
+The purpose of this project is to create an Ansible VM with Vagrant, and use it to provision a Droplet.
 
 # Assumptions
 1. You have set up VMWorkstation on you host PC.
