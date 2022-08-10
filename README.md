@@ -18,24 +18,28 @@ useradd -m vagrant && passwd vagrant
 mkdir /home/vagrant/.ssh
 nano /home/vagrant/.ssh/authorized_keys
 ```
-and paste the public key in there.
+2. Paste the public key in there.
 ```
 chmod -R go= ~/.ssh
 chown -R vagrant:vagrant ~/.ssh
 passwd root 
 usermod -aG sudo vagrant
 ```
-2. Take note of the Public IP of your Droplet
+3. Take note of the Public IP of your Droplet
 
 ### The Ansible VM
-1. Run the follwoing command to add an entry for your Droplet. 
+1. Run the following command to add an entry for your Droplet. 
 ```
-nano /home/vagrant/hosts**
+nano /home/vagrant/hosts
+```
+2. Write the name and IP for this group of machines, and then save.
 ```
 [droplet]
 123.45.678.9
 ```
-2. save and run **ansible -i hosts all -m ping**
+2. To test a successful SSH connection from the Ansible machine to the Droplet run the following command:
+```ansible -i hosts all -m ping
+'''
 3. You should get a successul green pong.
 4. You can run a playbook from the **vagrant** home directory to update your droplet with the command:
 ```
