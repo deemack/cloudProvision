@@ -29,4 +29,4 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 ```
 2. save and run **ansible all -m ping**
 3. You should get a successul green pong.
-4. You can run a playbook from the **vagrant** home directory to update your droplet with the command **ansible-playbook playbooks/update.yml -u vagrant --private-key=/home/vagrant/.ssh/id_rsa -K**
+4. You can run a playbook from the **vagrant** home directory to update your droplet with the command **ansible-playbook playbooks/update.yml -K**. The capital **K** flag is used to prompt for the **BECOME** password so that the commands can be executed as root.
