@@ -12,13 +12,14 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 3. Run **sudo su** and then **cp /home/vagrant/.ssh/id_rsa.pub /mnt/vagrant-mounts/1000-1000/-vagrant/id_rsa.pub** to copy the public key to your host computer. It will be in the location where you cloned the repo.
 
 ### The Droplet
-1. ~~goto digital ocean and create a droplet. Add the public key to the **Authentication** area.~~
-2. Log in to droplet as root and run **useradd -m vagrant && passwd vagrant** and set a password.
-3. Run **mkdir /home/vagrant/.ssh**
-4. Run **nano /home/vagrant/.ssh/authorized_keys** and paste the public key in there.
-5. Run **chmod -R go= ~/.ssh**
-6. Run **chown -R vagrant:vagrant ~/.ssh**
-7. Take note of the Public IP of your Droplet
+1. Log in to droplet as root and run **useradd -m vagrant && passwd vagrant** and set a password.
+2. Run **mkdir /home/vagrant/.ssh**
+3. Run **nano /home/vagrant/.ssh/authorized_keys** and paste the public key in there.
+4. Run **chmod -R go= ~/.ssh**
+5. Run **chown -R vagrant:vagrant ~/.ssh**
+6. Run **passwd root** and set the root password.
+7. Run **usermod -aG sudo vagrant** to add vagrant to the sudoers group.
+8. Take note of the Public IP of your Droplet
 
 ### The Ansible VM
 1. Run **sudo nano /etc/ansible/hosts** and add an entry for your Droplet. 
@@ -26,5 +27,5 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 [droplet]
 123.45.678.9
 ```
-2. save and run **ansible droplet -m ping**
+2. save and run **ansible all -m ping**
 3. You should get a successul green pong.
