@@ -38,7 +38,8 @@ nano /home/vagrant/hosts
 123.45.678.9
 ```
 2. To test a successful SSH connection from the Ansible machine to the Droplet run the following command:
-```ansible -i hosts all -m ping
+```
+ansible -i hosts all -m ping
 '''
 3. You should get a successul green pong.
 4. You can run a playbook from the **vagrant** home directory to update your droplet with the command:
