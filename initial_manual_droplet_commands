@@ -1,0 +1,9 @@
+Copy and paste these into the Droplet to create the vagrant user and configure ssh
+
+useradd -m -s /bin/bash vagrant && passwd vagrant
+mkdir /home/vagrant/.ssh
+nano /home/vagrant/.ssh/authorized_keys
+chmod -R go= ~/.ssh
+chown -R vagrant:vagrant ~/.ssh
+passwd root 
+usermod -aG sudo vagrant
