@@ -7,9 +7,13 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 3. You have an account with Digital Ocean and are able to create Droplets.
 
 ### The Ansible VM
-1. clone this repo and run **vagrant up**
+1. Clone this repo and run **vagrant up**
 2. Once the machine is built, login with **vagrant:vagrant** 
-3. Run **sudo su** and then **cp /home/vagrant/.ssh/id_rsa.pub /mnt/vagrant-mounts/1000-1000/-vagrant/id_rsa.pub** to copy the public key to your host computer. It will be in the location where you cloned the repo.
+3. Run the following commands to copy the public key of your Ansible VM to your host computer, for ease of copy pasting to the Droplet later. It will be in the location where you cloned the repo.
+```
+sudo su
+cp /home/vagrant/.ssh/id_rsa.pub /mnt/vagrant-mounts/1000-1000/-vagrant/id_rsa.pub
+```
 
 ### The Droplet
 1. Log in to droplet as root and run the following commands. They will create the **vagrant** user and the **.ssh** directory to store the public ssh key of your Ansible VM. 
