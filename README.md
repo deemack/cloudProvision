@@ -38,7 +38,7 @@ nano /home/vagrant/hosts
 ```
 2. Write the group name and IP of the Droplet, and then save.
 ```
-[droplet]
+[droplets]
 123.45.678.9
 ```
 2. To test a successful SSH connection from the Ansible machine to the Droplet run the following command:
