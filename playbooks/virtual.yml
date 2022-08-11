@@ -5,12 +5,12 @@
   tasks:
     - name: Install virtualenv using pip
         pip:
-	  name: virtualenv
+	        name: virtualenv
 	  
     - name: Initiate virtualenv
       ansible.builtin.pip:
         virtualenv: /home/vagrant/virtualenv
-	virtualenv_python: python3.10
+	      virtualenv_python: python3.10
         requirements: /home/vagrant/requirements.txt
         extra_args: --no-cache-dir
   # The --no-cache-dir flag is because the VM has low ram and will not install some of the large packages in the requirements file
