@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - copy:
+        src: /home/vagrant/requirements.txt
+        dest: /home/vagrant/requirements.txt
+        owner: vagrant
+        group: vagrant
+        mode: u=rwx,g=r,o=r
+
+    - name: Install virtualenv using pip
+      ansible.builtin.pip:
+        name: virtualenv
+
+    - name: Initiate virtualenv
+      ansible.builtin.pip:
+        virtualenv: /home/vagrant/virtualenv
+        virtualenv_python: python3.10
+        requirements: /home/vagrant/requirements.txt
+        extra_args: --no-cache-dir
