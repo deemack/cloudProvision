@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "vmware_desktop"
   config.vm.define "master", primary: true do |master|
     master.vm.hostname = 'master'
-    master.vm.box = "bento/ubuntu-20.04"
+    master.vm.box = "bento/ubuntu-22.04"
     master.vm.network :private_network, ip: "192.168.56.10"    
     master.vm.provision :shell, privileged: false, path: "bootstrap.sh"	
 end
