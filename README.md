@@ -14,7 +14,7 @@ The purpose of this project is to create an Ansible VM with Vagrant, and use it 
 ### The Droplet
 1. Log in to droplet as root and run the following commands. They will create the **vagrant** user and the **.ssh** directory to store the public ssh key of your Ansible VM. 
 ```
-useradd -m vagrant && passwd vagrant
+useradd -m -s /bin/bash vagrant && passwd vagrant
 mkdir /home/vagrant/.ssh
 nano /home/vagrant/.ssh/authorized_keys
 ```
