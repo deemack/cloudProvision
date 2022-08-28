@@ -1,2 +1,5 @@
 [droplets]
 123.123.123.123
+
+[droplets:vars]
+tomcat_url=https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.0-M17/bin/apache-tomcat-10.1.0-M17.tar.gz

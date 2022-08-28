@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - include: update.yml
+    - include: packages.yml
+    - include: install_tomcat.yml

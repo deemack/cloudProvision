@@ -1,0 +1,36 @@
+    - name: Create tomcat directory
+      file:
+        path: /opt/tomcat
+        state: directory
+
+    - name: Download and extract version  10.1 of tomcat into /opt/tomcat
+      ansible.builtin.unarchive:
+        src: "{{ tomcat_url }}"
+        dest: /opt/tomcat
+        remote_src: yes
+
+    - name: Add JAVA_HOME environmental variable
+      ansible.builtin.lineinfile:
+        path: /home/vagrant/.bashrc
+        line: export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+        create: yes
+
+    - name: Add CATALINA_HOME environmental variable
+      ansible.builtin.lineinfile:
+        path: /home/vagrant/.bashrc
+        line: export CATALINA_HOME=/opt/tomcat/apache-tomcat-10.1.0-M17
+        create: yes
+
+    - name: Reboot machine to refresh environmental variables
+      ansible.builtin.reboot:
+      
+    - name: Replace tomcat-users.xml tomcat configuration file
+      copy:
+        src: /home/vagrant/temp/tomcat-users.xml
+        dest: $CATALINA_HOME/conf/tomcat-users.xml
+    
+    - name: Replace context.xml tomcat configuration file
+      copy:
+        src: /home/vagrant/temp/context.xml
+        dest: $CATALINA_HOME/webapps/manager/META-INF/context.xml
+        

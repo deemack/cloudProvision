@@ -1,8 +1,3 @@
----
-- hosts: all
-  become: true
-  become_user: root
-  tasks:
     - copy:
         src: /home/vagrant/requirements.txt
         dest: /home/vagrant/requirements.txt

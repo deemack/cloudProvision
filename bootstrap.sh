@@ -19,3 +19,8 @@ sudo cp -R /mnt/vagrant-mounts/1000-1000/-vagrant/hosts /home/vagrant/hosts
 
 # Copy pip requirements file to vagrant home folder
 sudo cp /mnt/vagrant-mounts/1000-1000/-vagrant/requirements.txt /home/vagrant/requirements.txt
+
+# Copy tomcat config files to vagrant home folder
+sudo mkdir /home/vagrant/temp
+sudo cp -R /mnt/vagrant-mounts/1000-1000/-vagrant/config/* /home/vagrant/temp/
+
