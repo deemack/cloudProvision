@@ -6,10 +6,10 @@
 yes '' | ssh-keygen -N '' > /dev/null
 
 # Update and upgrade packages
-sudo apt update && sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 
 # Install ansible
-sudo apt install -y ansible
+sudo apt-get install -y ansible
 
 # Copy Playbooks to vagrant home folder
 sudo cp -R /mnt/vagrant-mounts/1000-1000/-vagrant/playbooks/ /home/vagrant/playbooks/
